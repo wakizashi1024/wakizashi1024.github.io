@@ -1,24 +1,21 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import ThemeIcon from './ThemeIcon.astro';
 import { SITE_TITLE } from '../consts';
+import Hamburger from './Hamburger.astro';
+import Navigation from './Navigation.astro';
 ---
 
 <header>
-	<nav>
-		<div class="header-left">
-			<h2><a href="/">{SITE_TITLE}</a></h2>
+	<div class="header-top">
+		<Hamburger />
+
+		<h2 class="logo"><a href="/">{SITE_TITLE}</a></h2>
+	
+		<div class="nav-desktop">
+			<Navigation />
 		</div>
 
-		<div class="header-middle">
-			<div class="internal-links">
-				<HeaderLink href="/">Home</HeaderLink>
-				<HeaderLink href="/blog">Blog</HeaderLink>
-				<HeaderLink href="/about">About</HeaderLink>
-			</div>
-		</div>
-
-		<div class="header-right">
+		<div class="actions">
 			<ThemeIcon />
 			<div class="social-links">
 				<!-- <a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -50,8 +47,17 @@ import { SITE_TITLE } from '../consts';
 				</a>
 			</div>
 		</div>
-	</nav>
+	</div>
+
+	<div class="nav-mobile">
+		<Navigation />
+	</div>
 </header>
+
+<script>
+	import "../scripts/menu.js";
+</script>
+
 <style>
 	header {
 		margin: 0;
@@ -65,16 +71,13 @@ import { SITE_TITLE } from '../consts';
 		background: var(--black);
 	}
 
-	.header-left {
-		display: flex;
+	.logo, .actions {
+		width: 250px;
 	}
 
-	.header-middle {
+	.header-top .actions {
 		display: flex;
-	}
-
-	.header-right {
-		display: flex;
+		justify-content: flex-end;
 	}
 
 	h2 {
@@ -87,20 +90,20 @@ import { SITE_TITLE } from '../consts';
 		text-decoration: none;
 	}
 
-	nav {
+	.header-top {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
-	nav a {
+	.header-top a {
 		padding: 1em 0.5em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
 
-	nav a.active {
+	.header-top a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
@@ -108,11 +111,5 @@ import { SITE_TITLE } from '../consts';
 	.social-links,
 	.social-links a {
 		display: flex;
-	}
-	
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
 	}
 </style>
