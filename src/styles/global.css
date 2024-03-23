@@ -21,12 +21,17 @@
 	--bg-color: linear-gradient(var(--gray-gradient)) no-repeat;
 	--font-color: rgba(var(--gray-dark));
 	--code-color: rgba(var(--gray-dark));
+	--img-bg-color: rgba(255, 255, 255);
 }
   
 [data-theme="dark"] {
 	--bg-color: rgba(var(--black));
 	--font-color: rgba(var(--white));
 	--code-color: rgba(var(--gray-dark));
+}
+
+[data-theme="dark"] img,video,iframe {
+	filter: brightness(0.9);
 }
 
 @font-face {
