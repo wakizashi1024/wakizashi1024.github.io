@@ -71,7 +71,7 @@ import Navigation from './Navigation.astro';
 		background: var(--black);
 	}
 
-	.logo, .actions {
+	.actions {
 		width: 250px;
 	}
 
@@ -111,5 +111,15 @@ import Navigation from './Navigation.astro';
 	.social-links,
 	.social-links a {
 		display: flex;
+	}
+
+	@media (max-width: 720px) {
+		.actions {
+			width: auto;
+		}
+
+		.social-links {
+			display: none;
+		}
 	}
 </style>
