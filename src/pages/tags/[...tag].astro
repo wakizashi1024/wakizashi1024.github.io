@@ -12,7 +12,7 @@ export async function getStaticPaths() {
         filteredPosts.sort((a, b) => a.data.pubDate < b.data.pubDate ? -1 : 1);
         // console.log(filteredPosts)
         return {
-            params: { tag },
+            params: { tag: tag },
             props: { posts: filteredPosts },
         };
     });
