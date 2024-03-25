@@ -90,7 +90,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro
 					</div>
 					<h1>{title}</h1>
 					<div class="tags">
-						{tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+						{tags.map((tag) => <a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a>)}
 					</div>
 					<hr />
 				</div>
