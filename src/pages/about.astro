@@ -2,13 +2,30 @@
 import Layout from '../layouts/BlogPost.astro';
 ---
 
+<style>
+	.selfie {
+		max-width: 250px;
+		display: block;
+		margin: auto;
+		border-radius: 50%;
+	}
+
+	.description {
+		text-align: center;
+	}
+</style>
+
 <Layout
 	title="About Me"
 	description="Lorem ipsum dolor sit amet"
 	pubDate={new Date('March 20 2024')}
-	heroImage="/blog-placeholder-about.jpg"
+	heroImage=""
 >
-	<p>一個喜歡IT的程序猿，平時喜歡從網路上學習新知，目標是成為能獨當一面的全端工程師</p>
+	<img class="selfie" src="/selfie.jpg" alt="wakizashi1024" />
+	<div class="description">
+		<p>一個喜歡IT的程序猿，平時喜歡從網路上學習新知<br />目標是成為能獨當一面的全端工程師</p>
+	</div>
+
 	<p>
 		<span>目前接觸過的技術有(本站主要內容):</span>
 		<ol>
