@@ -323,7 +323,7 @@ app.post('/upload-multiple-with-fields', upload.any(), (req: Request, res: Respo
 前端測試範例
 
 ```html
-    <script>
+<script>
     const fileInputMultiWithFields = document.querySelector('#fileInputMultiWithFields');
     async function formDataMultiWithFields() {
         const data = new FormData();
@@ -341,7 +341,7 @@ app.post('/upload-multiple-with-fields', upload.any(), (req: Request, res: Respo
         }
     }
     fileInputMultiWithFields.onchange = formDataMultiWithFields;
-    </script>
+</script>
 ```
 
 這裡假設一個情境是雲端儲存空間提供使用者上傳任意個檔案，上傳時用UUID來代表紀錄上傳的檔案。
