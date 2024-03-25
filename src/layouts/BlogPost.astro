@@ -5,7 +5,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -18,12 +18,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		.hero-image {
 			width: 100%;
 		}
+
 		.hero-image img {
 			display: block;
 			margin: 0 auto;
 			border-radius: 12px;
 			box-shadow: var(--box-shadow);
 		}
+
 		.prose {
 			width: 720px;
 			max-width: calc(100% - 2em);
@@ -32,21 +34,40 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			/* color: rgb(var(--gray-dark)); */
 			color: var(--font-color);
 		}
+
 		.title {
 			margin-bottom: 1em;
 			padding: 1em 0;
 			text-align: center;
 			line-height: 1;
 		}
+
 		.title h1 {
 			margin: 0 0 0.5em 0;
 		}
+
 		.date {
 			margin-bottom: 0.5em;
 			color: rgb(var(--gray));
 		}
+
 		.last-updated-on {
 			font-style: italic;
+		}
+
+		.title .tags {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.title .tags a {
+			margin: 0.25em;
+			border: solid 1px #a1a1a1;
+			border-radius: .5em;
+			padding: .5em 1em;
+			font-size: 0.75em;
+			background-color: #f8fcfd;
 		}
 	</style>
 
@@ -68,6 +89,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						}
 					</div>
 					<h1>{title}</h1>
+					<div class="tags">
+						{tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+					</div>
 					<hr />
 				</div>
 				<slot />
