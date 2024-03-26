@@ -30,7 +30,7 @@ const pageTitle = "Tag Index";
 <BaseLayout title={pageTitle}>
     <main>
         <div class="tags">
-            {tags.map((tag) => <p class="tag"><a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a></p>)}
+            {tags.map((tag) => <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>)}
         </div>
     </main>
 </BaseLayout>
