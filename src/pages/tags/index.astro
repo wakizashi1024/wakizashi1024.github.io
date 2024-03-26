@@ -3,34 +3,61 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection('blog');
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())] as string[];
+// const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())] as string[];
+const tags: { name: string; count: number }[] = [];
+allPosts.map((post) => {
+    post.data.tags?.map((_tag) => {
+        const idx = tags.findIndex((tag) => tag.name === _tag)
+        if (idx === -1) {
+            tags.push({ name: _tag, count: 1 })
+        } else {
+            tags[idx].count++
+        }
+    });
+});
+// console.log(tags)
 const pageTitle = "Tag Index";
 ---
 <style>
-    a {
-        color: #00539f;
-    }
-
     .tags {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .tag {
+        display: flex;
         margin: 0.25em;
-        border: dotted 1px #a1a1a1;
+        border: solid 1px rgb(var(--black));
         border-radius: .5em;
-        padding: .5em 1em;
-        font-size: 1.15em;
-        background-color: #f8fcfd;
+        font-size: 1em;
+        background-color: rgb(var(--gray-light));
+        text-decoration: none;
+    }
+
+    .name {
+        color: #00539f;
+        padding: .25em 1em;
+        text-decoration: underline;
+    }
+
+    .count {
+        color: var(--code-color);
+        background-color: rgb(var(--gray));
+        padding: .25em 1em;
+        border-radius: 0 .5em .5em 0;
     }
 </style>
 
 <BaseLayout title={pageTitle}>
     <main>
         <div class="tags">
-            {tags.map((tag) => <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>)}
+            {tags.map((tag) => 
+                <a class="tag" href={`/tags/${tag.name}`}>
+                    <div class="name">{tag.name}</div>
+                    <div class="count">{tag.count}</div>
+                </a>
+            )}
         </div>
     </main>
 </BaseLayout>
