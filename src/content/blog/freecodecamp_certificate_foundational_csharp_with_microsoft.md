@@ -6,14 +6,14 @@ pubDate: '2023-11-13 11:10:30'
 # heroImage: ''
 author: 'wakizashi1024'
 tags:
-  - C#
+#   - C#
   - csharp
   - dotnet
   - certificate
   - .net
   - freecodecamp
   - freecodecamp certificate
-  - foundational c# with microsoft
+#   - foundational c# with microsoft
   - foundational csharp with microsoft
   - microsoft
   - microsoft certificate
