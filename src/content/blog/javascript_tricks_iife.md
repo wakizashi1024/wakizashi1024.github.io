@@ -15,7 +15,8 @@ tags:
 ---
 ## 什麼是IIFE
 
-IIFE是"Immediately Invoked Function Expression"(立即執行函數)，是一種在定義js函數時同時立即執行該函數的技巧
+IIFE是"Immediately Invoked Function Expression"(立即執行函數)，是一種在定義js函數時同時立即執行該函數的技巧。
+
 一個簡單的IIFE範例:
 
 ```javascript
