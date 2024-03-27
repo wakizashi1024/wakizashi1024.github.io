@@ -41,7 +41,7 @@ IIFE是"Immediately Invoked Function Expression"(立即執行函數)，是一種
     我們可能會寫一段通用程式碼來增加event handler
 
     ```javascript
-    funciton addEventHandler(el, evtName, handler) {
+    function addEventHandler(el, evtName, handler) {
         if (el.addEventListener) {
             el.addEventListener(evtName, handler);
         } else if (el.attachEvent) {
