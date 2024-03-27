@@ -1,5 +1,5 @@
 ---
-title: '書籍介紹 - 鳶尾花書系列'
+title: '[讀書筆記]書籍介紹 - 鳶尾花書系列'
 description: '鳶尾花書簡介'
 pubDate: '2024/03/25 00:00:00'
 # updatedDate: ''
