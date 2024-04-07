@@ -5,6 +5,7 @@ const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
+		subtitle: z.optional(z.string()),
 		description: z.string(),
 		// Transform string to Date object
 		pubDate: z.coerce.date(),
