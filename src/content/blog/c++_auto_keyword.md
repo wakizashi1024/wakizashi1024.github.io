@@ -1,7 +1,7 @@
 ---
 title: '[學習筆記]C++ auto關鍵字使用'
 description: ''
-pubDate: '2023-10-23 12:03:06'
+pubDate: '2025-04-14 17:30:00'
 # updatedDate: ''
 # heroImage:''
 author: 'wakizashi1024'
@@ -18,7 +18,6 @@ tags:
 
 近期在學習使用SDL這個函式庫，從範例上看到了一個語法 `auto`，頓時讓我眼前一亮。沒想到除了Java和C#有 `var`關鍵字之外，C++也支援這麼好用的功能，在此寫一篇筆記記錄一下相關資訊。
 
-
 ## 🧠 C++ `auto` 是什麼？
 
 C++ 的 `auto` 關鍵字從 **C++11** 開始支援，目的是讓編譯器根據初始化值自動推導變數的型別，省去冗長的型別宣告。
@@ -30,7 +29,6 @@ auto x = 42;        // int
 auto y = 3.14;      // double
 auto z = "hello";   // const char*
 ```
-
 
 ### ✅ 搭配 STL 使用
 
@@ -47,7 +45,6 @@ int main() {
 }
 ```
 
-
 ### ✅ 搭配範圍 for 迴圈
 
 ```cpp
@@ -55,7 +52,6 @@ for (auto val : vec) {
     cout << val << endl;
 }
 ```
-
 
 ### ✅ C++14 起支援函式返回值推導
 
@@ -65,14 +61,12 @@ auto add(int a, int b) {
 }
 ```
 
-
 ### ✅ 搭配 `decltype(auto)` 保留參考型別
 
 ```cpp
 int x = 10;
 decltype(auto) y = (x); // y 是 int&
 ```
-
 
 ## ❌ `auto` 限制與不能使用的地方
 
@@ -82,7 +76,6 @@ decltype(auto) y = (x); // y 是 int&
 | 不可用於函式參數                  | 除非使用 lambda 或模板                 |
 | C++11 不支援成員變數使用 `auto` | C++14 起支援於 class 成員變數中使用    |
 | 無法推導回傳值時使用              | 必須 return 明確的型別值供推導         |
-
 
 ## 🔍 C++ `auto` vs C# `var` vs Java `var` / `val` 比較
 
@@ -96,7 +89,6 @@ decltype(auto) y = (x); // y 是 int&
 | 可否用於 class 成員變數 | ✅（C++14 起）               | ❌        | ❌                      | ❌                     |
 | 是否保留參考/const      | ✅ 可搭配 `decltype(auto)` | ❌        | ❌                      | ✅ 為 `final`        |
 | 是否為語法糖            | ✅                           | ✅        | ✅                      | ✅                     |
-
 
 ## 📘 範例比較
 
@@ -115,7 +107,6 @@ var x = 100;          // int
 var str = "hello";    // string
 // var y;             // ❌ 錯誤：必須初始化
 ```
-
 
 ### Java 10 `var` 範例
 
