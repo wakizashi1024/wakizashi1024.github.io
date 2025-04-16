@@ -3,7 +3,7 @@ title: '[學習筆記]C++ auto關鍵字使用'
 description: ''
 pubDate: '2025-04-14 17:30:00'
 # updatedDate: ''
-# heroImage:''
+heroImage: '/images/cpp_auto_keyword/hero_image.png'
 author: 'wakizashi1024'
 tags:
   - c++
