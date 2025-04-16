@@ -1,5 +1,5 @@
 ---
-title: "C++ 的 static_cast 與 dynamic_cast：從實例理解型別轉換"
+title: "[學習筆記]C++ 的 static_cast 與 dynamic_cast：從實例理解型別轉換"
 description: ''
 pubDate: '2025-04-16'
 # updatedDate: ''
