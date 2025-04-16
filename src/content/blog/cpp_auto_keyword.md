@@ -6,7 +6,7 @@ pubDate: '2025-04-14 17:30:00'
 heroImage: '/images/cpp_auto_keyword/hero_image.png'
 author: 'wakizashi1024'
 tags:
-  - C++
+  - c++
   - cpp
 ---
 ## History

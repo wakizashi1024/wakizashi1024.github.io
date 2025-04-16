@@ -8,7 +8,7 @@ author: 'wakizashi1024'
 tags:
   - javasctipt
   - js
-  - IIFE
+  - iife
   - js tricks
   - frontend
   - web dev
@@ -38,18 +38,18 @@ IIFE是"Immediately Invoked Function Expression"(立即執行函數)，是一種
 如何利用IIFE來提升程式執行時的效率，以下舉幾個例子:
 
 1. 不同瀏覽器的環境相容
-    我們可能會寫一段通用程式碼來增加event handler
+   我們可能會寫一段通用程式碼來增加event handler
 
-    ```javascript
-    function addEventHandler(el, evtName, handler) {
-        if (el.addEventListener) {
-            el.addEventListener(evtName, handler);
-        } else if (el.attachEvent) {
-            el.attachEvent('on' + evtName, handler);
-        } else {
-            el['on' + evtName] = handler;
-        }
-    }
+   ```javascript
+   function addEventHandler(el, evtName, handler) {
+       if (el.addEventListener) {
+           el.addEventListener(evtName, handler);
+       } else if (el.attachEvent) {
+           el.attachEvent('on' + evtName, handler);
+       } else {
+           el['on' + evtName] = handler;
+       }
+   }
    ```
 
    這段程式碼使用起來沒問題，但隨著專案越來越大，程式呼叫的次數越來越多，但其實每次程式路徑都是固定的，使用IIFE改造後如下:
@@ -72,61 +72,59 @@ IIFE是"Immediately Invoked Function Expression"(立即執行函數)，是一種
     })();
    ```
 
-    改造後只要在程式初始化時定義addEventHandler，不需要每次都判斷，節省了許多開銷。
-
+   改造後只要在程式初始化時定義addEventHandler，不需要每次都判斷，節省了許多開銷。
 2. 不同裝置的環境相容
 
-    現在很多SPA會需要多端共用的情況(Electrion, Cordova等)，在開發時可能常常會寫如下的程式
+   現在很多SPA會需要多端共用的情況(Electrion, Cordova等)，在開發時可能常常會寫如下的程式
 
-    ```javascript
-    function requset(options) {
-        if (typeof window !== 'undefined') {
-            // Broswer environment logic
-        } else {
-            // Node environment logic 
-        }
-    }
-    ```
+   ```javascript
+   function requset(options) {
+       if (typeof window !== 'undefined') {
+           // Broswer environment logic
+       } else {
+           // Node environment logic 
+       }
+   }
+   ```
 
-    使用IIFE改造後:
+   使用IIFE改造後:
 
-    ```javascript
-    var request = (function () {
-        if (typeof window !== 'undefined') {
-            return function (options) {
-                // Broswer environment logic
-            }
-        } else {
-            return function (options) {
-                /// Node environment logic 
-            }
-        }
-    })();
-    ```
-
+   ```javascript
+   var request = (function () {
+       if (typeof window !== 'undefined') {
+           return function (options) {
+               // Broswer environment logic
+           }
+       } else {
+           return function (options) {
+               /// Node environment logic 
+           }
+       }
+   })();
+   ```
 3. 通用方法在背景重複產生的匿名物件
 
-    我們常常會開發一些共用的utils功能，如以下範例:
+   我們常常會開發一些共用的utils功能，如以下範例:
 
-    ```javascript
-    function removeSpace(str) {
-        return str.replace(/\s/g '');
-    }
-    ```
+   ```javascript
+   function removeSpace(str) {
+       return str.replace(/\s/g '');
+   }
+   ```
 
-    每執行一次就會產生一次匿名Regexp物件，我們可以使用IIFE + 閉包的特性來改造:
+   每執行一次就會產生一次匿名Regexp物件，我們可以使用IIFE + 閉包的特性來改造:
 
-    ```javascript
-    var removeSpace = (function () {
-        var regex = /\s/g;
+   ```javascript
+   var removeSpace = (function () {
+       var regex = /\s/g;
 
-        return function (str) {
-            return str.replace(regex, '');
-        }
-    })();
-    ```
+       return function (str) {
+           return str.replace(regex, '');
+       }
+   })();
+   ```
 
-    這樣就不會每次呼叫時都浪費時間去建立匿名物件了
+   這樣就不會每次呼叫時都浪費時間去建立匿名物件了
 
 ## 結語
 

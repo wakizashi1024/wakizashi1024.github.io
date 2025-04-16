@@ -6,10 +6,10 @@ pubDate: '2024/03/21 00:00:00'
 # heroImage: ''
 author: 'wakizashi1024'
 tags:
-  - Node.js
-  - Express.js
-  - Multer
-  - File upload
+  - node.js
+  - express.js
+  - multer
+  - file upload
 ---
 ## 前言
 
@@ -19,28 +19,27 @@ tags:
 
 - 初始化專案
 
-    - Bash commands
+  - Bash commands
 
-        ```bash
-        mkdir express-example-multer
-        cd express-example-multer
-        npm init -y
-        ```
+    ```bash
+    mkdir express-example-multer
+    cd express-example-multer
+    npm init -y
+    ```
+  - tsconfig.json
 
-    - tsconfig.json
-
-        ```json
-        {
-            "compilerOptions": {
-                "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-                "module": "commonjs",                                /* Specify what module code is generated. */
-                "allowSyntheticDefaultImports": true,             /* Allow 'import x from y' when a module doesn't have a default export. */
-                "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-                "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-                "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-            }
+    ```json
+    {
+        "compilerOptions": {
+            "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+            "module": "commonjs",                                /* Specify what module code is generated. */
+            "allowSyntheticDefaultImports": true,             /* Allow 'import x from y' when a module doesn't have a default export. */
+            "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+            "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+            "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
         }
-        ```
+    }
+    ```
 
 ## 安裝依賴
 
@@ -153,7 +152,7 @@ app.post('/upload', upload.single('file'), (req: Request, res: Response, next: N
 app.listen(3000);
 ```
 
-這裡用multer(處理html multipart的middleware)來處理上傳檔案的處理，首先先初始化multer實例(dest為檔案上傳時存放的目錄)，然後我們宣告一個post路由來提供上傳Endpoint(這裡是/upload)。使用初始化後的`upload.single`方法來接收post表單，然後定義Callback function來作後續處理。(這邊印出檔案資訊和post body)。
+這裡用multer(處理html multipart的middleware)來處理上傳檔案的處理，首先先初始化multer實例(dest為檔案上傳時存放的目錄)，然後我們宣告一個post路由來提供上傳Endpoint(這裡是/upload)。使用初始化後的 `upload.single`方法來接收post表單，然後定義Callback function來作後續處理。(這邊印出檔案資訊和post body)。
 
 再來寫個簡單的前端頁面作測試(也可以用postman等工具來測試)
 
@@ -194,13 +193,13 @@ app.listen(3000);
 </html>
 ```
 
-這邊簡單用一個`input`元素來對應要上傳的檔案，然後註冊一個事件，當檔案發生變化時自動建立表單後上傳
+這邊簡單用一個 `input`元素來對應要上傳的檔案，然後註冊一個事件，當檔案發生變化時自動建立表單後上傳
 
 (輸出結果: TBD)
 
 ### 多個檔案上傳
 
-多個檔案和單個檔案的程式碼很像，只是我們要改用`multer.array`來處理檔案
+多個檔案和單個檔案的程式碼很像，只是我們要改用 `multer.array`來處理檔案
 
 ```typescript
 app.post('/upload-multiple', upload.array('files', maxFileCount), (req: Request, res: Response, next: NextFunction) => {
@@ -247,7 +246,7 @@ app.post('/upload-multiple', upload.array('files', maxFileCount), (req: Request,
 </body>
 ```
 
-這邊將多個檔案上傳時組成一個陣列放入`files`欄位，且`input`元素需指定`multiple`來告訴瀏覽器允許選擇多個檔案上傳
+這邊將多個檔案上傳時組成一個陣列放入 `files`欄位，且 `input`元素需指定 `multiple`來告訴瀏覽器允許選擇多個檔案上傳
 
 (輸出結果: TBD)
 
@@ -311,7 +310,7 @@ app.post('/upload-multiple-with-specified-fields', upload.fields([
 
 ### 多檔案上傳(任意欄位名稱)
 
-有時候我們功能要做的比較靈活，這時我們可能就不會限定使用者使用那些欄位名稱來上傳檔案，這時候就會用到`multer.any`來處理
+有時候我們功能要做的比較靈活，這時我們可能就不會限定使用者使用那些欄位名稱來上傳檔案，這時候就會用到 `multer.any`來處理
 
 ```typescript
 app.post('/upload-multiple-with-fields', upload.any(), (req: Request, res: Response, next: NextFunction) => {
