@@ -6,7 +6,7 @@ pubDate: '2025-04-16'
 heroImage: '/images/cpp_static_and_danamic_cast/hero_image.png'
 author: 'wakizashi1024'
 date: 2025-04-16
-tags: ["c++", "cpp" "type_cast", "static_cast", "dynamic_cast", "oop"]
+tags: ["c++", "cpp", "type_cast", "static_cast", "dynamic_cast", "oop"]
 # categories: ["程式語言", "C++"]
 ---
 ## History
