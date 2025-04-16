@@ -19,7 +19,7 @@ tags: ["C++", "type_cast", "static_cast", "dynamic_cast", "oop"]
 
 ## 前言
 
-在 C++ 中，型別轉換（type casting）是一個重要但容易被誤用的主題。筆者近期在學習SDL的時候，發現 `static_cast` 和 `dynamic_cast`這兩種新語法。原來除了傳統的 C-style cast還有這種高級功能，經過資料查照和實際使用後，本文將透過實例與語言對照，深入探討這兩者的差異與適用情境。
+在 C++ 中，型別轉換（type casting）是一個重要但容易被誤用的主題。筆者近期在學習SDL的時候，發現 `static_cast` 和 `dynamic_cast`這兩種新語法。原來除了傳統的 C-style cast還有這種高級功能，經過資料查找和實際使用後，本文將透過實例與語言對照，深入探討這兩者的差異與適用情境。
 
 <br />
 
